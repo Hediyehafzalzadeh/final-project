@@ -2,11 +2,10 @@ import React, { Component, useReducer, useState } from "react";
 import ShopingItem from "./shopingitem";
 import axios from "axios";
 
-const ShopingItems = ({ items , update}) => {
+const ShopingItems = ({ items, onDelete }) => {
   const [totalprice, setTotalprice] = useState(0);
   const [Items, setItems] = useState(items);
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
-
 
   const token = JSON.parse(localStorage.getItem("auth_user"));
 
@@ -42,7 +41,6 @@ const ShopingItems = ({ items , update}) => {
       .then((response) => {
         setItems(items);
         console.log(response);
-        
       })
       .catch((error) => {});
 
@@ -67,42 +65,19 @@ const ShopingItems = ({ items , update}) => {
         .then((response) => {
           setItems(items);
           console.log(response);
-
         })
         .catch((error) => {});
     }
   }
 
-  function handleDelete(id) {
-    const items = [...Items];
-    let newitems = items.filter((item) => item.id !== id);
-    axios
-      .post(
-        `http://localhost:8000/api/products/delete`,
-        { id },
-        {
-          headers: {
-            Authorization: `Bearer ${token?.access_token}`,
-          },
-        }
-      )
-      .then((response) => {
-        setItems(newitems);
-
-
-        
-      })
-      .catch((error) => {});
-      
-  }
   return (
-    <div>
+    <div className="flex flex-col items-end w-4/6">
       <p className="pt-5">Totale Price : $ {totalprice}</p>
 
       {items.map((shopingitem) => (
         <ShopingItem
           key={shopingitem.id}
-          onDelete={handleDelete}
+          onDelete={onDelete}
           item={shopingitem}
           onInc={handleIncrease}
           onDec={handleDecrease}

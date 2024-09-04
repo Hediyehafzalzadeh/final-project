@@ -5,8 +5,8 @@ const ShopingItem = ({ item, onDelete, onInc, onDec }) => {
 
   return (
     <div>
-      <div className=" md:m-10 m-3 ">
-        <div className="flex  md:text-2xl w-1/2 text-xl md:h-24 h-16 justify-start">
+      <div className=" md:m-10 mx-auto ">
+        <div className="flex md:text-2xl text-xl md:h-24 h-16 ">
           <img src={item.img} alt="" />
           <span className="md:m-5">{Item.name}</span>
           <span className="md:m-5">${Item.price}</span>

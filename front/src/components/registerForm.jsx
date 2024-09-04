@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import _ from "lodash";
 
-function RegisterForm() {
+function RegisterForm({onRegister}) {
   const [data, setData] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
 
@@ -58,7 +58,7 @@ function RegisterForm() {
     }
 
     axios
-      .post("http://main-backend.test/api/auth/register", {
+      .post("http://localhost:8000/api/auth/register", {
         username: data.username,
         password: data.password,
       })
@@ -71,7 +71,10 @@ function RegisterForm() {
             access_token: response.data.access_token,
           })
         );
-        return history("/profile");
+        onRegister();
+        history("/profile");
+        window.location.reload();
+
       })
       .catch(function (error) {
         console.log(error);

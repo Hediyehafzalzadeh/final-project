@@ -1,8 +1,8 @@
 import React from "react";
 const Footer = () => {
   return (
-    <div className="text-[#faf0e6] bg-[#483c3b]">
-      <div className="flex mt-24 h-96 ">
+    <div className="text-[#faf0e6] bg-[#483c3b] w-full">
+      <div className="flex mt-24 h-96 w-full ">
         <p className="m-20 md:text-4xl text-xl">
           You Can Find Us in :{" "}
           <span className="pi pi-instagram m-3 text-3xl"></span>{" "}

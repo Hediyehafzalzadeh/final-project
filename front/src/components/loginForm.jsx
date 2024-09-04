@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import _ from "lodash";
 
-function LoginForm() {
+function LoginForm( { onLogin } ) {
   const [data, setData] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
   const [problem, setProblem] = useState();
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const Schema = {
     username: Joi.string().required().label("Username"),
@@ -60,26 +60,35 @@ function LoginForm() {
     }
 
     axios
-      .post("http://main-backend.test/api/auth/login", {
+      .post("http://localhost:8000/api/auth/login", {
         username: data.username,
         password: data.password,
       })
       .then(function (response) {
         let username = data.username;
-
+        localStorage.setItem("role", response.data.role);
         localStorage.setItem(
           "auth_user",
           JSON.stringify({
             username: username,
             access_token: response.data.access_token,
           })
-
         );
-        return history("/profile");
+
+        onLogin();
+
+        if (response.data.role === "admin") {
+          history("/admin");
+          window.location.reload();
+        } else {
+         history("/profile");
+         window.location.reload();
+
+        }
       })
       .catch(function (error) {
-        console.log(error.response.data);
-        setProblem(error.response.data.message);
+        console.log(error.message);
+        // setProblem(error.response.data.message);
       });
   }
 

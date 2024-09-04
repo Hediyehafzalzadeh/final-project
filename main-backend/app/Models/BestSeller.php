@@ -12,15 +12,14 @@ class BestSeller extends Model
     protected $fillable = [
         'name',
         'img',
-        'price',
-        'liked'
+        'price'
     ];
 
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => 'http://localhost:8000/storage/images/' . $value,
-            set: fn(string $value) => str_replace('http://localhost:8000/storage/images/', '', $value),
+            get: fn(string $value) => 'http://localhost:8000/images/' . $value,
+            set: fn(string $value) => str_replace('http://localhost:8000/images/', '', $value),
         );
     }
 }

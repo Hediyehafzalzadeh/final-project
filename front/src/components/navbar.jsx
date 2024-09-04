@@ -8,10 +8,12 @@ class navbar extends Component {
   state = {
     searchbar: false,
     searchinput: "",
-    authUser: {},
     token: JSON.parse(localStorage.getItem("auth_user")),
+    islogin : this.props.islogin,
     counter: 0,
+    role :localStorage.getItem('role')
   };
+
 
   componentDidMount() {
 
@@ -41,14 +43,18 @@ class navbar extends Component {
   handlesearch = () => {};
 
   getProfileLink = () => {
-    if (this.state.token) {
-      return "/profile";
+    if (this.state.islogin) {
+      if(this.state.role === 'admin'){
+        return "/admin";
+      }else{
+        return "/profile";
+      }
     }
     return "/login";
-  };
+  };  
 
   handleCart = () => {
-    if (this.state.token) {
+    if (this.state.islogin) {
       return "/profile/shoppingcart";
     }
     return "/login";

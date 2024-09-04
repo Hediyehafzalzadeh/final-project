@@ -40,6 +40,7 @@ class AuthController extends Controller
 
         return response()->json([
             'access_token' => $user->createToken($device)->plainTextToken,
+            'role' => $user->role
         ], Response::HTTP_CREATED);
     }
 
@@ -55,8 +56,10 @@ class AuthController extends Controller
             $user = User::where(["username" => $credentials['username']])->first();
             $device = substr($request->userAgent() ?? '', 0, 255);
 
+
             return response()->json([
                 'access_token' => $user->createToken($device)->plainTextToken,
+                'role' => $user->role
             ], Response::HTTP_CREATED);
         }
 

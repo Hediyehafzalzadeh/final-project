@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ShoppingCart from "../pages/shopingcart";
+import Favorites from './favorites';
 
-const Userpage = () => {
+const Userpage = ({onLogout}) => {
   const { option } = useParams();
 
 
@@ -11,7 +12,7 @@ const Userpage = () => {
   const menu = [
     "shoppingcart",
     "PreviousOrders",
-    "ChangePassword",
+    "Favorites",
     "Information",
     "logOut",
   ];
@@ -28,18 +29,21 @@ const Userpage = () => {
         return <ShoppingCart />;
       case "Previous Orders":
         return <div>there is no orders </div>;
-      case "Change Password":
-        return;
+      case "Favorites":
+        return <Favorites/>;
       case "Information":
         return;
       case "logOut":
+        onLogout();
         localStorage.removeItem("auth_user");
+        localStorage.removeItem("role");
+        history("/");
+        window.location.reload();
 
-        return history("/");
     }
   }
   return (
-    <div className=" mt-12  bg-[#e3d5ca]  mx-auto  w-5/6 ">
+    <div className=" mt-12  bg-[#e3d5ca] rounded-lg  mx-auto  w-5/6 ">
       <div className=" md:text-4xl text-lg flex w-5/6 ">
         <ul className=" w-1/4 text-[#faf0e6]  ">
           {menu.map((m) => (

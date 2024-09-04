@@ -9,7 +9,7 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
 
   return (
     <nav className={itemsCount ? "" : "hidden"}>
-      <ul className="bg-[#d1b6a6] text-[#65574f] w-32 flex cursor-pointer text-lg mx-auto rounded-md">
+      <ul className="bg-[#d1b6a6] text-[#65574f] w-48 flex cursor-pointer text-lg mx-auto rounded-md">
         {pages.map((page) => (
           <li
             key={page}

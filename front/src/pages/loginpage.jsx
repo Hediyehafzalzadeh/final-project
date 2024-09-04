@@ -1,10 +1,10 @@
 import React from "react";
 import LoginForm from "../components/loginForm";
 
-const loginPage = () => {
+const loginPage = ({onLogin}) => {
   return (
     <div>
-      <LoginForm />
+      <LoginForm onLogin={onLogin}/>
     </div>
   );
 };

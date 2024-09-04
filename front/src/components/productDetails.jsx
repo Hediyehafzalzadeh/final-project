@@ -26,7 +26,7 @@ const ProductDetails = () => {
         console.log(response.data);
       })
       .catch((error) => {});
-  }, [prod.liked]);
+  }, []);
 
   function handleLike() {
     axios
@@ -41,12 +41,9 @@ const ProductDetails = () => {
       )
       .then(function (response) {
         const product = prod;
-        // console.log(product.liked, 1);
         product.liked = !product.liked;
-        // console.log(product.liked, 2);
         setProd(product);
         forceUpdate();
-        // console.log(product.liked, 3);
       })
       .catch((error) => {});
       
@@ -57,7 +54,7 @@ const ProductDetails = () => {
 
     axios
       .post(
-        "http://main-backend.test/api/products/add-to-cart",
+        "http://localhost:8000/api/products/add-to-cart",
         { id },
         {
           headers: {
