@@ -25,18 +25,21 @@ const Favorites = () => {
       });
   }, []);
 
-  const items = () => {
-    let pro = [];
-    if (likes && !_.isEmpty(likes)) {
-      likes.map((i) => {
-        pro.push(i.product);
-      });
-    }
-    console.log(pro);
-    return pro;
-  };
-
+  // const items = () => {
+  //   let pro = [];
+  //   if (likes && !_.isEmpty(likes)) {
+  //     likes.map((i) => {
+  //       pro.push(i.product);
+  //     });
+  //   }
+  //   console.log(pro);
+  //   return pro;
+  // };
+if(_.isEmpty(likes)){
+  return <p>There is no Favorites</p>;
+}
   return (
+    
     <div>
       <div className="flex w-full min-h-full">
         <div className="flex flex-wrap my-10 gap-4 text-center basis-4/5 justify-center">

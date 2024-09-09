@@ -65,4 +65,33 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Not Athorized'], 403);
     }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current' => 'required|current_password:sanctum',
+            'new' => 'required|different:current|min:8'
+        ]);
+
+        $user = User::where([
+            'username' => $request->user()->username
+        ])->first();
+
+
+        if (! Hash::check($request->current, $user->password)) {
+            return response()->json(['message'=> 'Old Password is incorrect'], 403);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->new)
+        ]);
+        $device = substr($request->userAgent() ?? '', 0, 255);
+
+        return response()->json([
+            'access_token' => $user->createToken($device)->plainTextToken
+        ], Response::HTTP_CREATED);
+
+
+    }
+
 }

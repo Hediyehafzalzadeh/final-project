@@ -12,6 +12,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('auth/register', [AuthController::class, 'register']);
+Route::post('auth/change-password', [AuthController::class, 'changePassword'])->middleware('auth:sanctum');
 Route::post('auth/logout', [AuthController::class, 'destroy']);
 Route::post('auth/login', [AuthController::class, 'login']);
 Route::post('products/add-to-cart', [ProductController::class, 'addToCart'])->middleware('auth:sanctum');

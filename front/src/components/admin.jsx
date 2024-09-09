@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import AddProducts from './addProduct';
 import DeleteProduct from './deleteProduct';
 import { RadioButton } from 'primereact/radiobutton';
+import ChangePassword from "./changePassword";
         
 
 const Admin = ()=>{
@@ -14,7 +15,6 @@ const Admin = ()=>{
       "AddProducts",
       "DeleteProducts",
       "ChangePassword",
-      "Information",
       "logOut",
     ];
   
@@ -29,10 +29,9 @@ const Admin = ()=>{
             return <AddProducts />;
           case "DeleteProducts":
             return <DeleteProduct />;
-          case "Change Password":
-            return;
-          case "Information":
-            return;
+          case "ChangePassword":
+            return <ChangePassword/>;
+         
           case "logOut":
             localStorage.removeItem("auth_user");
             localStorage.removeItem("role");

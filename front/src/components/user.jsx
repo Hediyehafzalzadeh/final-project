@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ShoppingCart from "../pages/shopingcart";
 import Favorites from './favorites';
+import ChangePassword from "./changePassword";
 
 const Userpage = ({onLogout}) => {
   const { option } = useParams();
@@ -13,7 +14,7 @@ const Userpage = ({onLogout}) => {
     "shoppingcart",
     "PreviousOrders",
     "Favorites",
-    "Information",
+    "ChangePassword",
     "logOut",
   ];
 
@@ -31,8 +32,8 @@ const Userpage = ({onLogout}) => {
         return <div>there is no orders </div>;
       case "Favorites":
         return <Favorites/>;
-      case "Information":
-        return;
+      case "ChangePassword":
+        return <ChangePassword/>;
       case "logOut":
         onLogout();
         localStorage.removeItem("auth_user");
