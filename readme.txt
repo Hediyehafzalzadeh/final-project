@@ -1,200 +1,268 @@
-🛍️ E-Commerce Website
+# 🛍️ E-Commerce Web Application
 
-A full-stack e-commerce web application built with a modern frontend and a Laravel-based backend. The application is divided into two separate parts that communicate through a RESTful API.
+A full-stack e-commerce web application built with **React** and **Laravel**. The application provides a responsive shopping experience and uses a separate frontend and backend architecture connected through RESTful APIs.
 
-📌 Overview
+## 🚀 Project Overview
 
-This project was developed as a full-stack e-commerce application with a clear separation between the frontend and backend.
+This project is a full-stack e-commerce application developed with a clear separation between the frontend and backend.
 
-The frontend is responsible for the user interface and user interactions, while the backend manages the application logic, database operations, and API endpoints.
+The frontend is responsible for displaying the user interface and handling user interactions, while the Laravel backend manages the application logic, database operations, and API communication.
 
-🛠️ Technologies Used
-Frontend
-React
-JavaScript
-Tailwind CSS
-Axios
-Backend
-Laravel
-PHP
-RESTful API
-Database
-MySQL
-Development Tools
-Node.js & npm
-Composer
-Git & GitHub
-XAMPP
-phpMyAdmin
-✨ Features
-🛒 E-commerce product browsing
-📦 Product management through the backend API
-🔄 Communication between frontend and backend through RESTful APIs
-📱 Responsive user interface
-🗄️ MySQL database integration
-⚡ Dynamic data fetching using Axios
-🔐 Laravel-based backend architecture
-🧩 Separate frontend and backend architecture
-📁 Project Structure
+The application uses a **MySQL database** to store and manage product-related data.
 
-The project is divided into two main parts:
+---
 
-e-commerce-project/
+## 🛠️ Technologies Used
+
+### Frontend
+
+* React
+* JavaScript
+* Tailwind CSS
+* Axios
+
+### Backend
+
+* Laravel
+* PHP
+* RESTful API
+
+### Database
+
+* MySQL
+
+### Tools
+
+* Node.js
+* npm
+* Composer
+* XAMPP
+* phpMyAdmin
+* Git & GitHub
+
+---
+
+## ✨ Features
+
+* 🛍️ Browse available products
+* 🔍 View product information
+* 🛒 Add products to the shopping cart
+* 📦 Manage product data through the backend
+* 🔄 Fetch data dynamically through API requests
+* 📱 Responsive user interface
+* 🗄️ MySQL database integration
+* ⚡ React-based frontend
+* 🔧 Laravel-powered backend
+* 🔗 Separate frontend and backend architecture
+
+---
+
+## 📂 Project Structure
+
+The project is organized into two main parts:
+
+```text
+ecommerce/
 │
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── ...
-│   ├── package.json
-│   └── ...
+├── front/              # React frontend application
 │
-├── backend/
-│   ├── app/
-│   ├── database/
-│   ├── routes/
-│   ├── resources/
-│   ├── .env
-│   ├── composer.json
-│   └── ...
+├── main-backend/       # Laravel backend application
+│
+├── laravel.sql         # Database dump
+│
+├── readme.txt
 │
 └── README.md
+```
 
-The exact folder structure may vary depending on the project configuration.
+### Frontend
 
-🚀 Getting Started
-Prerequisites
+The `front` directory contains the React application, including the user interface, components, pages, and API communication logic.
 
-Before running the project, make sure you have the following installed:
+### Backend
 
-Node.js
-PHP
-Composer
-MySQL
-XAMPP or another local PHP/MySQL development environment
-🔧 Frontend Setup
+The `main-backend` directory contains the Laravel application, including:
+
+* Application logic
+* API routes
+* Database configuration
+* Models
+* Controllers
+* Migrations
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Make sure the following tools are installed on your system:
+
+* Node.js and npm
+* PHP
+* Composer
+* MySQL
+* XAMPP or another local PHP/MySQL environment
+
+---
+
+## 🔧 Frontend Setup
 
 Navigate to the frontend directory:
 
-cd frontend
+```bash
+cd front
+```
 
 Install the required dependencies:
 
+```bash
 npm install
+```
 
 Start the development server:
 
+```bash
 npm start
-⚙️ Backend Setup
+```
 
-Navigate to the backend directory:
+---
 
-cd backend
+## ⚙️ Backend Setup
+
+Navigate to the Laravel backend directory:
+
+```bash
+cd main-backend
+```
 
 Install the PHP dependencies:
 
+```bash
 composer install
+```
 
 Generate the Laravel application key:
 
+```bash
 php artisan key:generate
+```
 
 Start the Laravel development server:
 
+```bash
 php artisan serve
+```
 
-The backend will be available at:
+The backend server will be available at:
 
+```text
 http://127.0.0.1:8000
-🗄️ Database Setup
+```
 
-To load the sample products and other project data, import the provided database file into MySQL.
+---
 
-Using phpMyAdmin
-Start Apache and MySQL using XAMPP.
+## 🗄️ Database Setup
 
-Open phpMyAdmin:
+The repository includes a database dump named:
 
+```text
+laravel.sql
+```
+
+### Importing the Database
+
+1. Start **Apache** and **MySQL** using XAMPP.
+
+2. Open phpMyAdmin:
+
+```text
 http://localhost/phpmyadmin/
+```
 
-Log in with the following credentials:
+3. Log in using:
 
+```text
 Username: root
-Password: (leave empty)
-Create a new database for the project.
-Select the database and open the Import tab.
-Click Choose File and select the provided database file.
-Click Import to complete the process.
-🔐 Environment Configuration
+Password: Leave empty
+```
 
-Before running the backend, configure the .env file with your database credentials.
+4. Create a new database for the project.
 
-Example:
+5. Select the database and open the **Import** tab.
 
+6. Select the `laravel.sql` file.
+
+7. Click **Import** to load the database.
+
+---
+
+## 🔐 Environment Configuration
+
+Inside the `main-backend` directory, create or update the `.env` file with your database configuration:
+
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=your_database_name
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
-Make sure the database name matches the database you created in phpMyAdmin.
+Make sure that `DB_DATABASE` matches the name of the database you created in phpMyAdmin.
 
-🖼️ Screenshots
-Homepage
+---
 
-Add a screenshot of the homepage here.
+## 🔗 Frontend–Backend Architecture
 
+The frontend and backend are separate applications that communicate through API requests.
 
+```text
+┌──────────────────────┐
+│                      │
+│   React Frontend     │
+│      /front           │
+│                      │
+└──────────┬───────────┘
+           │
+           │ REST API Requests
+           ▼
+┌──────────────────────┐
+│                      │
+│   Laravel Backend    │
+│   /main-backend      │
+│                      │
+└──────────┬───────────┘
+           │
+           │
+           ▼
+┌──────────────────────┐
+│                      │
+│   MySQL Database     │
+│                      │
+└──────────────────────┘
+```
 
+---
 
-Product Page
-
-Add a screenshot of the product page here.
-
-
-
-
-Shopping Cart
-
-Add a screenshot of the shopping cart here.
-
-
-
-
-Make sure the screenshots are stored in a screenshots folder in the root directory of the project.
-
-🔗 Frontend–Backend Communication
-
-The frontend communicates with the Laravel backend through API requests.
-
-┌──────────────┐        API Requests        ┌──────────────┐
-│              │  ───────────────────────▶  │              │
-│   React      │                            │   Laravel    │
-│   Frontend   │  ◀───────────────────────  │   Backend    │
-│              │        API Responses       │              │
-└──────────────┘                            └──────┬───────┘
-                                                   │
-                                                   ▼
-                                            ┌──────────────┐
-                                            │    MySQL     │
-                                            │   Database   │
-                                            └──────────────┘
-📚 What I Learned
+## 📚 Key Learning Outcomes
 
 Through this project, I gained practical experience in:
 
-Developing a full-stack web application
-Building responsive user interfaces with React
-Creating and consuming RESTful APIs
-Connecting a React frontend to a Laravel backend
-Working with relational databases and MySQL
-Managing application data through API requests
-Structuring a project with separate frontend and backend applications
-👩‍💻 Author
+* Developing a full-stack web application
+* Building responsive user interfaces with React
+* Creating and consuming RESTful APIs
+* Connecting a React frontend to a Laravel backend
+* Working with MySQL databases
+* Managing application data through API requests
+* Structuring a project with separate frontend and backend applications
+* Working with Git and GitHub
 
-Hediyeh Afzalzadeh
+---
 
-GitHub: @Hediyehafzalzadeh
+## 👩‍💻 Author
+
+**Hediyeh Afzalzadeh**
+
+[GitHub Profile](https://github.com/Hediyehafzalzadeh)
